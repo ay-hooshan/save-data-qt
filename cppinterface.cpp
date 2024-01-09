@@ -33,21 +33,23 @@ CPPInterface::CPPInterface()
     // json in file
     m_personModel = new PersonModel;
 
-    // tests
-//    QVector<QString> tags1 = {"dangerous", "far", "magical"};
-//    QVector<QString> tags2 = {"dangerous"};
-//    QVector<QString> tags3 = {"far", "magical"};
+    // TEST
+    QFile personFile("person" + QString::number(0) + ".json");
+    if (!personFile.open(QIODevice::ReadOnly)) {
+        QVector<QString> tags1 = {"dangerous", "far", "magical"};
+        QVector<QString> tags2 = {"dangerous"};
 
-//    Address address1 = Address{"Diagon", "London", tags1};
-//    Address address2 = Address{"Koooche", "Gangcity", tags2};
+        Address address1 = Address{"Diagon", "London", tags1};
+        Address address2 = Address{"Koooche", "Gangcity", tags2};
 
-//    QVector<QString> phoneNumbers1 = {"09003434", "091234567"};
-//    QVector<QString> phoneNumbers2 = {"09343434"};
+        QVector<QString> phoneNumbers1 = {"09003434", "091234567"};
 
-//    QVector<Address> addresses = {address1, address2};
+        QVector<Address> addresses = {address1, address2};
 
-//    Person *person1 = new Person{"ali", "alavi", 20, phoneNumbers1, addresses};
-//    m_personModel->appendRow(person1);
+        Person *person1 = new Person{"ali", "alavi", 20, phoneNumbers1, addresses};
+        m_personModel->appendRow(person1);
+    }
+    // ENDTEST
 
     // reading json from file
     int i = 0;
